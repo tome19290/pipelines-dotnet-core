@@ -36,16 +36,7 @@ pipeline {
 
         }
 
-        stage('Quality Scan'){
-            steps {
-                sh 'dotnet sonarscanner begin /k:"dotnet-sample-project" /d:sonar.host.url="http://$SONAR_IP"  /d:sonar.login="$SONAR_TOKEN"'
-
-                sh 'dotnet build'
-
-                sh 'dotnet sonarscanner end /d:sonar.login="sqp_4f4904db430aba9948fce759bbf9777998547c44"'
-            }
-        }
-
+       
         stage('Package') {
             steps {
                 
